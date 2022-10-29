@@ -910,7 +910,7 @@ public class OpenCvViewport extends SurfaceView implements SurfaceHolder.Callbac
         int textLine3Y = textLine2Y + statBoxTextLineSpacing;
 
         // Draw the 3 text lines
-        canvas.drawText(String.format("OpenFTC EasyOpenCV v%s", BuildConfig.VERSION_NAME),        statBoxLTxtStart, textLine1Y, fpsMeterTextPaint);
+        canvas.drawText(String.format("OpenFTC EasyOpenCV v%s", "1.5.2"),        statBoxLTxtStart, textLine1Y, fpsMeterTextPaint);
         canvas.drawText(String.format("FPS@%dx%d: %.2f", size.getWidth(), size.getHeight(), fps), statBoxLTxtStart, textLine2Y, fpsMeterTextPaint);
         canvas.drawText(String.format("Pipeline: %dms - Overhead: %dms", pipelineMs, overheadMs), statBoxLTxtStart, textLine3Y, fpsMeterTextPaint);
     }
