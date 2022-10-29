@@ -590,4 +590,38 @@ class OpenCvWebcamImpl extends OpenCvCameraBase implements OpenCvWebcam, CameraC
     {
         System.loadLibrary("EasyOpenCV");
     }
+
+    @Override
+    public synchronized void setZoom(int zoom) // 1...10
+    {
+        int maxZoom = -1;
+        if(camera == null)
+        {
+            throw new OpenCvCameraException("Cannot set zoom until camera is opened and streaming is started");
+        }
+        else
+        {
+            PtzControl ptzControl = getPtzControl();
+            maxZoom = ptzControl.getMaxZoom();
+            int minZoom = ptzControl.getMinZoom();
+            zoom = minZoom + 40 * zoom;
+            if(maxZoom == -1)
+            {
+                throw new OpenCvCameraException("Cannot set zoom until streaming has been started");
+            }
+            else if(zoom > maxZoom)
+            {
+                throw new OpenCvCameraException(String.format("Zoom value of %d requested, but maximum zoom supported in current configuration is %d", zoom, maxZoom));
+            }
+            else if(zoom < 0 || zoom < minZoom)
+            {
+                throw new OpenCvCameraException("Zoom value cannot be less than 0 or minZoom " + minZoom + " maxZoom " + maxZoom);
+            }
+            int currZoom = ptzControl.getZoom();
+            System.out.println("current zoom is " + currZoom + " to set zoom " + zoom + " maxZoom " + maxZoom);
+            ptzControl.setZoom(zoom);
+        }
+    }
+
+
 }

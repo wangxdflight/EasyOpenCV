@@ -413,4 +413,9 @@ class OpenCvVuforiaPassthroughImpl extends OpenCvCameraBase
     public static native void freeExtImgDatMat(long ptr);
     public static native void colorConversionInternalCamera(long rawDataPtr, long rgbPtr);
     public static native void colorConversionWebcam(long rawDataPtr, long rgbPtr);
+
+    @Override
+    public synchronized void setZoom(int zoom) {
+        throw new RuntimeException("setZoom not implemented");
+    }
 }

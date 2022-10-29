@@ -330,4 +330,6 @@ public interface OpenCvCamera extends CameraStreamSource
      * if a recording session is currently active.
      */
     void stopRecordingPipeline();
+
+    void setZoom(int zoom);
 }

@@ -626,6 +626,7 @@ class OpenCvInternalCameraImpl extends OpenCvCameraBase implements Camera.Previe
                 throw new OpenCvCameraException("Zoom value cannot be less than 0");
             }
             Camera.Parameters parameters = camera.getParameters();
+            System.out.println("to set zoom " + zoom + " maxZoom " + maxZoom);
             parameters.setZoom(zoom);
             camera.setParameters(parameters);
         }

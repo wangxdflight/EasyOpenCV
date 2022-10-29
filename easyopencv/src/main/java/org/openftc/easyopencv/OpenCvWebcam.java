@@ -75,4 +75,6 @@ public interface OpenCvWebcam extends OpenCvCamera
      * @return the GainControl for this webcam
      */
     GainControl getGainControl();
+
+    void setZoom(int zoom);
 }

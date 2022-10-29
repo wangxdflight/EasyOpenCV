@@ -1116,4 +1116,10 @@ public class OpenCvInternalCamera2Impl extends OpenCvCameraBase implements OpenC
     {
         System.loadLibrary("EasyOpenCV");
     }
+
+    @Override
+    public synchronized void setZoom(int zoom) {
+        throw new RuntimeException("setZoom not implemented");
+    }
+
 }
